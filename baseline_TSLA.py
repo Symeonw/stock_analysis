@@ -2,7 +2,7 @@ import pandas as pd
 from fbprophet import Prophet
 from fbprophet.diagnostics import cross_validation
 
-df = pd.read_parquet("stock_data/resampled/tech_data/AAPL")
+df = pd.read_parquet("stock_data/resampled/cycle_data/TSLA")
 df = df[["open"]]
 df["ds"] = pd.to_datetime(df.index)
 df.rename(columns={"open":"y"}, inplace=True)
@@ -24,4 +24,3 @@ from fbprophet.plot import plot_cross_validation_metric
 fig = plot_cross_validation_metric(df_cv, metric='mape')
 fig2 = plot_cross_validation_metric(df_cv, metric='mape')
 
-df_p_2
